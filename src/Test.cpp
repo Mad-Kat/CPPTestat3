@@ -7,14 +7,20 @@
 
 #include <iostream>
 
+#include <functional>
+
 void test_rotate_1_2_3() {
 	
 	IndexableSet<int> asdf{1,2,3,4,5,6};
+	//IndexableSet<int, std::greater<int>> asdf{1,2,3,4,5,6};
 	
+
 	std::cout << asdf.front();
 	std::cout << asdf.back();
 	
-	std::cout << asdf[-4];
+	for(int i: asdf){
+		std::cout << i;
+	}
 
 	ASSERT_EQUAL(asdf[-4],asdf[2]);
 }

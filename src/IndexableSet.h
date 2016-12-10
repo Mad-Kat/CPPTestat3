@@ -6,7 +6,7 @@
 #include <functional>
 
 template<class T, class Compare = std::less<T>>
-class IndexableSet: std::set<T, Compare> {
+class IndexableSet: public std::set<T, Compare> {
 	T element;
 public:
 
@@ -19,14 +19,14 @@ public:
 			std::set<T, Compare>(b, e) {
 	}
 
-	//IndexableSet(size_type n, T const &val):std::set(n,val){}
+	//IndexableSet(std::set::size_type n, T const &val):std::set(n,val){}
 
 	T const& front() {
 		return *this->begin();
 	}
 
 	T const& back() {
-		return *this->end();
+		return *this->rbegin();
 	}
 
 	T& operator[](int index) {
